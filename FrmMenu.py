@@ -17,6 +17,13 @@ class Ui_FrmMenu(object):
         FrmMenu.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(FrmMenu)
         self.centralwidget.setObjectName("centralwidget")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(30, 30, 101, 31))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
         FrmMenu.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(FrmMenu)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -48,6 +55,7 @@ class Ui_FrmMenu(object):
     def retranslateUi(self, FrmMenu):
         _translate = QtCore.QCoreApplication.translate
         FrmMenu.setWindowTitle(_translate("FrmMenu", "Sistema de encriptacion de archivos"))
+        self.pushButton.setText(_translate("FrmMenu", "Iniciar"))
         self.menuEncriptar.setTitle(_translate("FrmMenu", "Encriptar"))
         self.menuDesencriptar.setTitle(_translate("FrmMenu", "Desencriptar"))
         self.menuOpciones.setTitle(_translate("FrmMenu", "Opciones"))
