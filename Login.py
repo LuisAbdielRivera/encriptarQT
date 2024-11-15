@@ -1,5 +1,8 @@
 from FrmLogin import *
 from Menu import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 class MainWindow(QtWidgets.QMainWindow,Ui_MainWindow):
     def __init__(self, *args, **kwargs):
@@ -26,9 +29,9 @@ class MainWindow(QtWidgets.QMainWindow,Ui_MainWindow):
         msgBox.setIcon(QMessageBox.Critical)
         msgBox.setText("Error de usuario o contraseña")
         msgBox.setWindowTitle("Error")
-        msgBox.setStandardButtons(QMenssageBox.Ok | QMessageBox.Cancel)
+        msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
         returnvValue = msgBox.exec()
-        if returnvValue == QMenssageBox.Ok:
+        if returnvValue == QMessageBox.Ok:
             self.close()
     
     def openMenu(self):
