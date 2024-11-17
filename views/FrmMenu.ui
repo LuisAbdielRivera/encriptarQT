@@ -13,46 +13,7 @@
   <property name="windowTitle">
    <string>Sistema de encriptacion de archivos</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="btnEncriptar">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>101</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Encriptar</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnDesencriptar">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>30</y>
-      <width>101</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Desencriptar</string>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -66,11 +27,13 @@
     <property name="title">
      <string>Encriptar</string>
     </property>
+    <addaction name="encriptarNuevo"/>
    </widget>
    <widget class="QMenu" name="menuDesencriptar">
     <property name="title">
      <string>Desencriptar</string>
     </property>
+    <addaction name="desencriptarNuevo"/>
    </widget>
    <widget class="QMenu" name="menuOpciones">
     <property name="title">
@@ -96,6 +59,16 @@
   <action name="actionOpciones">
    <property name="text">
     <string>Opciones</string>
+   </property>
+  </action>
+  <action name="encriptarNuevo">
+   <property name="text">
+    <string>Nuevo</string>
+   </property>
+  </action>
+  <action name="desencriptarNuevo">
+   <property name="text">
+    <string>Nuevo</string>
    </property>
   </action>
  </widget>
