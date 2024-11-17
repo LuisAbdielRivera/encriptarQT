@@ -1,4 +1,4 @@
-from FrmMenu import *
+from views.FrmMenu import *
 
 class Menu(QtWidgets.QMainWindow, Ui_FrmMenu):
     def __init__(self, *args, **kwars ):

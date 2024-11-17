@@ -1,4 +1,4 @@
-from FrmLogin import *
+from views.FrmLogin import *
 from Menu import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
