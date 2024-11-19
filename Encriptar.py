@@ -1,3 +1,4 @@
+#pip install cryptography
 from views.FrmEncriptar import *
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.backends import default_backend
