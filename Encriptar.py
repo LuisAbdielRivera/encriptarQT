@@ -10,6 +10,7 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
         self.setupUi(self)
 
         self.btnEncriptar.clicked.connect(self.encriptarAES)
+        self.btnLimpiar.clicked.connect(self.limpiarCampos)
 
     def encriptarAES(self):
         data = self.txtMensaje.toPlainText()
@@ -24,3 +25,7 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
         ciphertext = encryptor.update(padded_data)+encryptor.finalize()
         self.lblMensajeEncriptado.setText(f'{ciphertext}')
         print(data)
+
+    def limpiarCampos(self):
+        self.lblMensajeEncriptado.clear()
+        self.txtMensaje.clear()
