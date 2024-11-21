@@ -139,7 +139,7 @@
         <normaloff>../Imagenes/limpiar.png</normaloff>../Imagenes/limpiar.png</iconset>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btnCargar">
       <property name="geometry">
        <rect>
         <x>510</x>
@@ -162,7 +162,7 @@
         <normaloff>../Imagenes/cargando.png</normaloff>../Imagenes/cargando.png</iconset>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="btnGuardar">
       <property name="geometry">
        <rect>
         <x>510</x>
