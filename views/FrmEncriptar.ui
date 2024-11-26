@@ -162,7 +162,7 @@
         <normaloff>../Imagenes/cargando.png</normaloff>../Imagenes/cargando.png</iconset>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnGuardar">
+     <widget class="QPushButton" name="btnGuardarArchivo">
       <property name="geometry">
        <rect>
         <x>510</x>

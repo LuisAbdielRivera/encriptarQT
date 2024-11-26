@@ -15,7 +15,7 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
 
         self.btnEncriptar.clicked.connect(self.encriptarAES)
         self.btnLimpiar.clicked.connect(self.limpiarCampos)
-        self.btnGuardar.clicked.connect(self.crearArchivos)
+        self.btnGuardarArchivo.clicked.connect(self.crearArchivos)
         #self.btnCargar.clicked.connect(self.cargarMensaje)
 
     def encriptarAES(self):
