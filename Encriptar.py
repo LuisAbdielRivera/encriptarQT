@@ -3,6 +3,10 @@ from views.FrmEncriptar import *
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from datetime import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
     def __init__(self, *args, **kwars ):
@@ -11,8 +15,8 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
 
         self.btnEncriptar.clicked.connect(self.encriptarAES)
         self.btnLimpiar.clicked.connect(self.limpiarCampos)
-        self.btnGuardar.clicked.connect(self.guardarDatos)
-        self.btnCargar.clicked.connect(self.cargarMensaje)
+        self.btnGuardar.clicked.connect(self.crearArchivos)
+        #self.btnCargar.clicked.connect(self.cargarMensaje)
 
     def encriptarAES(self):
         data = self.txtMensaje.toPlainText()
@@ -32,36 +36,13 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
         self.lblMensajeEncriptado.clear()
         self.txtMensaje.clear()
 
-    def guardarDatos(self):
-        mensaje_original = self.txtMensaje.toPlainText()
-        mensaje_encriptado = self.lblMensajeEncriptado.text()
-
-        with open("C:\Prueba\datos_guardados.txt", "w", encoding="utf-8") as archivo:
-            archivo.write("Mensaje Original:\n")
-            archivo.write(mensaje_original + "\n\n")
-            archivo.write("Mensaje Encriptado:\n")
-            archivo.write(mensaje_encriptado + "\n")
-
-        print("Datos PA")
-
-    def cargarMensaje(self):
-        try:
-            with open("C:\Prueba\datos_guardados.txt", "r", encoding="utf-8") as archivo:
-                contenido = archivo.readlines()
-
-            mensaje_original = ""
-            mensaje_encriptado = ""
-
-            for i, linea in enumerate(contenido):
-                if linea.strip() == "Mensaje Original:":
-                    mensaje_original = contenido[i + 1].strip()
-                elif linea.strip() == "Mensaje Encriptado:":
-                    mensaje_encriptado = contenido[i + 1].strip()
-
-            self.txtMensaje.setPlainText(mensaje_original)
-            self.lblMensajeEncriptado.setText(mensaje_encriptado)
-            print("Archivo cargado exitosamente.")
-        except FileNotFoundError:
-            print("El archivo no existe. Asegúrate de haber guardado los datos primero.")
-        except Exception as e:
-            print(f"Ocurrió un error al cargar el archivo: {e}")
+    def crearArchivos(self):
+        cadena = self.lblMensajeEncriptado.text()
+        if cadena != "":
+            fecha = datetime.now()
+            fechaformat = fecha.strftime("%m-%d-%Y%H-%M-%S")
+            with open(f'archivosEnc/MensajeEnc-{fechaformat}.txt', 'w') as fichero:
+                fichero.write(cadena)
+            QMessageBox.about(self, "Archivo", "Datos Almacenados Correctamente")
+        else:
+            QMessageBox.about(self, "Error", "No hay texto que se pueda almacenar")
