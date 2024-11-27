@@ -62,7 +62,7 @@
        <string>TextLabel</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnEncriptar">
+     <widget class="QPushButton" name="btnDesencriptar">
       <property name="geometry">
        <rect>
         <x>510</x>

@@ -14,8 +14,9 @@ class Desencriptar(QtWidgets.QMainWindow, Ui_FrmDesencriptar):
         QtWidgets.QMainWindow.__init__(self, *args, **kwars)
         self.setupUi(self)
 
-        self.btnEncriptar.clicked.connect(self.desencriptarAES)
+        self.btnDesencriptar.clicked.connect(self.desencriptarAES)
         self.btnCargarArchivo.clicked.connect(self.cargarArchivo)
+        self.btnLimpiar.clicked.connect(self.limpiarCampos)
 
     def cargarArchivo(self):
         options = QFileDialog.Options()
@@ -25,6 +26,10 @@ class Desencriptar(QtWidgets.QMainWindow, Ui_FrmDesencriptar):
             with open(fileName, 'r') as fichero:
                 mensaje = fichero.read()
             self.lblMensajeEncriptado.setText(mensaje)
+
+    def limpiarCampos(self):
+        self.lblMensajeEncriptado.clear()
+        self.lblMensajeEncriptado_2.clear()
 
     def desencriptarAES(self):
         data = self.lblMensajeEncriptado.text()
