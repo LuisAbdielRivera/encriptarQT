@@ -27,7 +27,7 @@ class Desencriptar(QtWidgets.QMainWindow, Ui_FrmDesencriptar):
             self.lblMensajeEncriptado.setText(mensaje)
 
     def desencriptarAES(self):
-        data = self.lblMensajeEncriptado_2.text()
+        data = self.lblMensajeEncriptado.text()
         key = b"123456789101112131415161718_UTXJ"
         iv = b"TI_UTXJ2024ENCRI"
         cadena_bytes = eval(data)
