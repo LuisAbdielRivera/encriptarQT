@@ -3,10 +3,10 @@ from views.FrmEncriptar import *
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from datetime import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from datetime import *
 
 class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
     def __init__(self, *args, **kwars ):
@@ -16,7 +16,7 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
         self.btnEncriptar.clicked.connect(self.encriptarAES)
         self.btnLimpiar.clicked.connect(self.limpiarCampos)
         self.btnGuardarArchivo.clicked.connect(self.crearArchivos)
-        #self.btnCargar.clicked.connect(self.cargarMensaje)
+        self.btnGuardarArchivo.clicked.connect(self.cargarArchivo)
 
     def encriptarAES(self):
         data = self.txtMensaje.toPlainText()
@@ -46,3 +46,12 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
             QMessageBox.about(self, "Archivo", "Datos Almacenados Correctamente")
         else:
             QMessageBox.about(self, "Error", "No hay texto que se pueda almacenar")
+
+    def cargarArchivo(self):
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getOpenFileName(self, "QFileDialog.getOpenFileName()", "", "All Files (*.txt);; Python Files (*.py)", options = options)
+        if fileName:
+            with open(fileName, 'r') as fichero:
+                mensaje = fichero.read()
+            self.txtMensaje.setText(mensaje)
