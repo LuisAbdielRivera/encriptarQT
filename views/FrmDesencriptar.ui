@@ -180,7 +180,7 @@
         <normaloff>../Imagenes/guardar-archivo.png</normaloff>../Imagenes/guardar-archivo.png</iconset>
       </property>
      </widget>
-     <widget class="QLabel" name="lblMensajeEncriptado_2">
+     <widget class="QLabel" name="lblMensajeDesencriptado">
       <property name="geometry">
        <rect>
         <x>20</x>

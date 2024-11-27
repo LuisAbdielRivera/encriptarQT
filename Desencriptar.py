@@ -29,7 +29,7 @@ class Desencriptar(QtWidgets.QMainWindow, Ui_FrmDesencriptar):
 
     def limpiarCampos(self):
         self.lblMensajeEncriptado.clear()
-        self.lblMensajeEncriptado_2.clear()
+        self.lblMensajeDesencriptado.clear()
 
     def desencriptarAES(self):
         data = self.lblMensajeEncriptado.text()
@@ -41,6 +41,6 @@ class Desencriptar(QtWidgets.QMainWindow, Ui_FrmDesencriptar):
         mensaje_desencriptado = descryptor.update(cadena_bytes) + descryptor.finalize()
         unpadder = padding.PKCS7(algorithms.AES.block_size).unpadder()
         mensaje_desencriptado = unpadder.update(mensaje_desencriptado) + unpadder.finalize()
-        self.lblMensajeEncriptado_2.setText(mensaje_desencriptado.decode('utf-8'))
+        self.lblMensajeDesencriptado.setText(mensaje_desencriptado.decode('utf-8'))
 
         print(data)
