@@ -70,6 +70,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(14)
         self.label_2.setFont(font)
+        self.label_2.setText("")
         self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -90,7 +91,6 @@ class Ui_MainWindow(object):
         self.lblContrasena.setText(_translate("MainWindow", "Contrasena"))
         self.btnCancelar.setText(_translate("MainWindow", "Cancelar"))
         self.btnAceptar.setText(_translate("MainWindow", "Entrar"))
-        self.label_2.setText(_translate("MainWindow", "Mensaje de Autenticación"))
 
 
 if __name__ == "__main__":

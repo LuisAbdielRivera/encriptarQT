@@ -58,8 +58,13 @@
         <height>171</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
      <widget class="QPushButton" name="btnDesencriptar">
@@ -67,7 +72,7 @@
        <rect>
         <x>510</x>
         <y>20</y>
-        <width>111</width>
+        <width>131</width>
         <height>41</height>
        </rect>
       </property>
@@ -84,7 +89,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../Imagenes/encriptado.png</normaloff>../Imagenes/encriptado.png</iconset>
+        <normaloff>../Imagenes/desencriptado.png</normaloff>../Imagenes/desencriptado.png</iconset>
       </property>
      </widget>
      <widget class="QLabel" name="label">
@@ -111,7 +116,7 @@
        <rect>
         <x>510</x>
         <y>70</y>
-        <width>111</width>
+        <width>131</width>
         <height>41</height>
        </rect>
       </property>
@@ -134,7 +139,7 @@
        <rect>
         <x>510</x>
         <y>120</y>
-        <width>111</width>
+        <width>131</width>
         <height>41</height>
        </rect>
       </property>
@@ -157,7 +162,7 @@
        <rect>
         <x>510</x>
         <y>170</y>
-        <width>111</width>
+        <width>131</width>
         <height>41</height>
        </rect>
       </property>
@@ -170,6 +175,10 @@
       <property name="text">
        <string>Guardar Archivo</string>
       </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Imagenes/guardar-archivo.png</normaloff>../Imagenes/guardar-archivo.png</iconset>
+      </property>
      </widget>
      <widget class="QLabel" name="lblMensajeEncriptado_2">
       <property name="geometry">
@@ -180,8 +189,13 @@
         <height>171</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
     </widget>

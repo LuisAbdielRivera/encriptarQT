@@ -158,7 +158,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Mensaje de Autenticación</string>
+     <string/>
     </property>
    </widget>
   </widget>

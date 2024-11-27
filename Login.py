@@ -9,7 +9,7 @@ class MainWindow(QtWidgets.QMainWindow,Ui_MainWindow):
         QtWidgets.QMainWindow.__init__(self, *args, **kwargs)
         self.setupUi(self)
 
-        self.label_2.setText("Hola Bienvenido a mi App")
+        self.label_2.setText("Bienvenido")
         self.btnAceptar.clicked.connect(self.validar)
         self.btnCancelar.clicked.connect(self.salir)
 
