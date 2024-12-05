@@ -1,14 +1,14 @@
 #pip install cryptography
-import base64
 from views.FrmEncriptar import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
-from datetime import *
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-
+from PyQt5.QtWidgets import *
+from datetime import *
+from PyQt5.QtGui import QPixmap
+from PIL import Image
+import base64
+import io
 
 class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
     def __init__(self, *args, **kwars ):
@@ -21,9 +21,9 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
         self.btnCargarArchivo.clicked.connect(self.cargarArchivo)
 
         self.btnCargarImagen.clicked.connect(self.cargarImagen)
-        self.btnLimpiarImg.clicked.connect(self.limpiarCamposImagen)
-        self.btnEncriptarImagen.clicked.connect(self.encriptarImgAES)
-        self.btnGuardarArchivoImg.clicked.connect(self.crearArchivosImg)
+        #self.btnLimpiarImg.clicked.connect(self.limpiarCamposImagen)
+        self.btnEncriptarImagen.clicked.connect(self.encriptarImagen)
+        self.btnGuardarArchivoImg.clicked.connect(self.guardarImagenEncriptada)
 
     #Texto
     def encriptarAES(self):
@@ -65,50 +65,57 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
             self.txtMensaje.setText(mensaje)
 
     #Imagenes
-    def encriptarImgAES(self):
-        if not hasattr(self, 'rutaImagen') or not self.rutaImagen:
-            return
+    def cargarImagen(self):
+        opciones = QFileDialog.Options()
+        archivo, _ = QFileDialog.getOpenFileName(
+            self, "Abrir imagen", "", "Imágenes (*.png *.jpg *.jpeg);;Todos los archivos (*)", options=opciones
+        )
 
-        with open(self.rutaImagen, "rb") as f:
-            data = f.read()
+        if archivo:
+            self.imagen_original = archivo
+            pixmap = QtGui.QPixmap(archivo)
+            self.Img.setPixmap(pixmap.scaled(self.Img.size(), QtCore.Qt.KeepAspectRatio))
+
+    def encriptarImagen(self):
+        if not self.imagen_original:
+            QMessageBox.warning(self, "Advertencia", "No se ha cargado ninguna imagen para encriptar.")
+            return
 
         key = b"123456789101112131415161718_UTXJ"
         iv = b"TI_UTXJ2024ENCRI"
 
-        padder = padding.PKCS7(128).padder()
-        padded_data = padder.update(data) + padder.finalize()
-        cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
-        encryptor = cipher.encryptor()
-        ciphertext = encryptor.update(padded_data) + encryptor.finalize()
-        encryptedImg = base64.b64encode(ciphertext).decode('utf-8')
-        self.lblImagenEncriptada.setText(encryptedImg)
-        print("Imagen Encriptada Correctamente")
+        try:
+            # Leer la imagen y convertirla en datos binarios
+            with open(self.imagen_original, "rb") as img_file:
+                datos_imagen = img_file.read()
 
-    def crearArchivosImg(self):
-        cadena = self.lblImagenEncriptada.text()
-        if cadena != "":
-            fecha = datetime.now()
-            fechaformat = fecha.strftime("%m-%d-%Y%H-%M-%S")
-            with open(f'archivosImgEnc/ImagenEnc-{fechaformat}.txt', 'w') as fichero:
-                fichero.write(cadena)
-            QMessageBox.about(self, "Archivo", "Datos Almacenados Correctamente")
-        else:
-            QMessageBox.about(self, "Error", "No hay texto que se pueda almacenar")
+            # Encriptar los datos
+            padder = padding.PKCS7(128).padder()
+            padded_data = padder.update(datos_imagen) + padder.finalize()
 
-    def cargarImagen(self):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(
-            self, "Seleccionar Imagen", "", "Imágenes (*.png *.jpg *.jpeg);;Todos los Archivos (*)", options=options
+            cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
+            encryptor = cipher.encryptor()
+            self.imagen_encriptada = encryptor.update(padded_data) + encryptor.finalize()
+
+            pixmap = QtGui.QPixmap("Imagenes/limpiar.png")
+            self.ImgEnc.setPixmap(pixmap.scaled(self.ImgEnc.size(), QtCore.Qt.KeepAspectRatio))
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Ocurrió un error al encriptar la imagen: {str(e)}")
+    
+    def guardarImagenEncriptada(self):
+        if not self.imagen_encriptada:
+            QMessageBox.warning(self, "Advertencia", "No hay imagen encriptada para guardar.")
+            return
+
+        opciones = QFileDialog.Options()
+        archivo, _ = QFileDialog.getSaveFileName(
+            self, "Guardar imagen encriptada", "", "Archivos binarios (*.bin);;Todos los archivos (*)", options=opciones
         )
 
-        if fileName:
-            pixmap = QPixmap(fileName)
-            self.lblMensajeImagen.setPixmap(pixmap)
-            self.rutaImagen = fileName
-
-    def limpiarCamposImagen(self):
-        self.lblMensajeImagen.clear()
-        self.lblImagenEncriptada.clear()
-        if hasattr(self, 'rutaImagen'):
-            del self.rutaImagen
+        if archivo:
+            try:
+                with open(archivo, "wb") as f:
+                    f.write(self.imagen_encriptada)
+                QMessageBox.information(self, "Éxito", "Imagen encriptada guardada correctamente.")
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"Ocurrió un error al guardar la imagen: {str(e)}")

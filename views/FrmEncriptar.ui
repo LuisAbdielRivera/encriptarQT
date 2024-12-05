@@ -195,7 +195,7 @@
      <attribute name="title">
       <string>Encriptar Imagen</string>
      </attribute>
-     <widget class="QLabel" name="lblImagenEncriptada">
+     <widget class="QLabel" name="ImgEnc">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -323,7 +323,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../Imagenes/cargando.png</normaloff>../Imagenes/cargando.png</iconset>
+        <normaloff>../Imagenes/cargando-img.png</normaloff>../Imagenes/cargando-img.png</iconset>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
@@ -345,7 +345,7 @@
        <string>Mensaje</string>
       </property>
      </widget>
-     <widget class="QLabel" name="lblMensajeImagen">
+     <widget class="QLabel" name="Img">
       <property name="geometry">
        <rect>
         <x>20</x>

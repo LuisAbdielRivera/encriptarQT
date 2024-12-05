@@ -157,29 +157,6 @@
         <normaloff>../Imagenes/cargando.png</normaloff>../Imagenes/cargando.png</iconset>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnGuardarArchivo">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>170</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Arial</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Guardar Archivo</string>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../Imagenes/guardar-archivo.png</normaloff>../Imagenes/guardar-archivo.png</iconset>
-      </property>
-     </widget>
      <widget class="QLabel" name="lblMensajeDesencriptado">
       <property name="geometry">
        <rect>
@@ -203,6 +180,174 @@
      <attribute name="title">
       <string>Desencriptar Imagen</string>
      </attribute>
+     <widget class="QPushButton" name="btnDesencriptarImg">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>20</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Desencriptar</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Imagenes/desencriptado.png</normaloff>../Imagenes/desencriptado.png</iconset>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>220</y>
+        <width>171</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Mensaje Desencriptado</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ImgEnc">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>471</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnCargarArchivoImg">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>120</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Cargar Archivo</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Imagenes/cargando.png</normaloff>../Imagenes/cargando.png</iconset>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnLimpiarImg">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>70</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Limpiar</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Imagenes/limpiar.png</normaloff>../Imagenes/limpiar.png</iconset>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Mensaje Encriptado</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Img">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>250</y>
+        <width>471</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnGuardarImg">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>170</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Guardar</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../Imagenes/limpiar.png</normaloff>../Imagenes/limpiar.png</iconset>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
