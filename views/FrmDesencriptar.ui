@@ -262,7 +262,7 @@
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../Imagenes/cargando.png</normaloff>../Imagenes/cargando.png</iconset>
+        <normaloff>../Imagenes/imagen-rota.png</normaloff>../Imagenes/imagen-rota.png</iconset>
       </property>
      </widget>
      <widget class="QPushButton" name="btnLimpiarImg">
@@ -341,11 +341,11 @@
        </font>
       </property>
       <property name="text">
-       <string>Guardar</string>
+       <string>Guardar Archivo</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../Imagenes/limpiar.png</normaloff>../Imagenes/limpiar.png</iconset>
+        <normaloff>../Imagenes/guardar-archivo.png</normaloff>../Imagenes/guardar-archivo.png</iconset>
       </property>
      </widget>
     </widget>

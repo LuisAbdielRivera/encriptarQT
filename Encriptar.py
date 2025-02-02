@@ -97,7 +97,7 @@ class Encriptar(QtWidgets.QMainWindow, Ui_FrmEncriptar):
             encryptor = cipher.encryptor()
             self.imagen_encriptada = encryptor.update(padded_data) + encryptor.finalize()
 
-            pixmap = QtGui.QPixmap("Imagenes/limpiar.png")
+            pixmap = QtGui.QPixmap("Imagenes/acceso.png")
             self.ImgEnc.setPixmap(pixmap.scaled(self.ImgEnc.size(), QtCore.Qt.KeepAspectRatio))
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Ocurrió un error al encriptar la imagen: {str(e)}")

@@ -59,8 +59,7 @@ class Desencriptar(QtWidgets.QMainWindow, Ui_FrmDesencriptar):
             try:
                 with open(archivo, "rb") as f:
                     self.imagen_encriptada = f.read()
-                self.ImgEnc.setText("Imagen encriptada cargada correctamente.")
-                self.ImgEnc.setStyleSheet("color: green;")
+                self.ImgEnc.setText("Imagen Cargada Correctamente.")
             except Exception as e:
                 QtWidgets.QMessageBox.warning(self, "Error", f"No se pudo cargar la imagen: {str(e)}")
 
